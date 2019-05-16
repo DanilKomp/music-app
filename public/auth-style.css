@@ -1,0 +1,147 @@
+/*
+#5680F9 - primary azure
+#4c36DD - sec 
+5680f9
+*/
+
+
+body{
+    background: url('/img/login.jpg')center no-repeat;
+    background-size: auto; 
+    opacity: 0.9;
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.404);
+    min-height: 100%;
+    margin-bottom: 0;
+    display: flex;
+    font-family:  sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 10%;
+    background-attachment: fixed;
+    overflow: hidden;
+    margin: 0;
+          
+        }
+        .box{
+            width: 300px;
+            padding: 40px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #191919;
+            text-align: center;
+            border-radius: 5px;
+            transition: 0.2s ease all;
+           
+        }
+        .box h2{
+            color: white;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .box input[type= "text"], .box input[type = "password"]{
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #e74c3c;
+            padding: 14px 0px;
+            width: 200px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+        .box input[type= "text"]:focus, .box input[type = "password"]:focus{
+            width: 280px;
+            border: 2px solid #e67e22;
+        }
+        .box button{
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #e06a34;
+            padding: 14px 40px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s ease-in all;
+            cursor: pointer;
+        }
+         .box button:hover{
+             background: #e06a34;
+         }
+
+
+
+.switch {
+  margin-left: auto;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: black 4px solid;
+  background: none;
+  border-radius:34px; 
+  -webkit-transition: .4s;
+  transition: ease-in .2s ;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 3px;
+  
+  background-color: black;
+  -webkit-transition: .4s;
+  transition:ease-in-out .2s;
+}
+
+input:checked + .slider {
+  background: none;
+   border: black 4px solid;
+}
+
+
+input:focus + .slider {
+  box-shadow: 0 0 1px ;
+}
+
+input:checked + .slider:before {
+    background-color:  black;
+  -webkit-transform: translateX(28px);
+  -ms-transform: translateX(28px);
+  transform: translateX(28px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+ 
+}

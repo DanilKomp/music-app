@@ -1,0 +1,25 @@
+{
+  "name": "musicapp",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dr6am/music-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dr6am/music-app/issues"
+  },
+  "homepage": "https://github.com/dr6am/music-app#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.16.4",
+    "hbs": "^4.0.4",
+    "mongodb": "^3.2.3"
+  }
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/auth-style.css">
+    <title id="title">Auth</title>
+
+
+
+</head>
+
+<body id="body">
+
+   
+   
+    <form  class="box animate" name="loginForm">
+        <h2 id="reg" align="center">Sign up</h2>
+        <label class="switch">
+            <input type="checkbox" id="switch" onchange="checkSwitch()">
+            <span class="slider round"></span>
+        </label>
+        <input type="text" name="uname"  placeholder="username" required>
+        <input type="text" name="email" id="email" placeholder="email" required>
+        <input type="password" name="psw" for="psw" placeholder="password" required>
+      <button type="submit" id="submit">sign up</button>
+    </form>
+ 
+    <script>
+
+        document.getElementById("switch").checked = false;
+
+
+        if (window.innerWidth < 950) {
+            var centerHeight = window.innerHeight / 6
+            document.getElementById('body').style.paddingTop = `${centerHeight}px`;
+        }
+
+        //connect to server
+
+        authType = 'reg'
+
+        function checkSwitch() {
+            while (true) {
+                var chbox;
+                chbox = document.getElementById('switch');
+                if (chbox.checked) {
+                    document.getElementById('email').style = 'display: none;';
+                    document.getElementById('reg').innerHTML = 'Sign in';
+                    document.getElementById('submit').innerHTML = 'Sign in';
+                    authType = 'login'
+
+                }
+                else {
+                    document.getElementById('email').style = 'display: block;';
+                    document.getElementById('reg').innerHTML = 'Sign up';
+                    document.getElementById('submit').innerHTML = 'Sign up';
+                    
+                    authType = 'reg'
+
+                }
+                return authType
+            }
+        }
+
+        document.getElementById("submit").addEventListener("click", function (e) {
+            e.preventDefault();
+            // получаем данные формы
+            let registerForm = document.forms["loginForm"];
+            let uname = registerForm.elements["uname"].value;
+            let email = registerForm.elements["email"].value;
+            let password = registerForm.elements["psw"].value;
+            // сериализуем данные в json
+            let user = JSON.stringify({ uname: uname, password: password, email: email });
+          console.log(user)
+            let request = new XMLHttpRequest();
+            // посылаем запрос на адрес "/auth"
+            request.open("POST", `/${authType}`, true);
+            request.setRequestHeader("Content-Type", "application/json");
+            request.addEventListener("load", function () {
+                var resp = request.response.substring(1, request.response.length - 1);
+
+                if (resp == 'Username already registered') {
+                    alert('Username already registered')
+                    document.cookie = '';
+                }
+                else if (resp == 'not registered') {
+                    alert('not registered')
+                    document.cookie = '';
+                }
+                else if (resp == 'incorrect password') {
+                    alert('incorrect password')
+                    document.cookie = '';
+                }
+                else if (resp == 'Email already registered') {
+                    alert(resp)
+                    document.cookie = '';
+                }
+                else {
+
+                    document.cookie = '';
+                    let token = resp // объявляем переменную токен-а
+                    document.cookie = token// закатываем его в куки
+                    window.location = '/'
+                }
+            });
+            request.send(user);
+        });
+    </script>
+</body>
+
+</html>

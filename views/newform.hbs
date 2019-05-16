@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+            background: #34495e;
+        }
+        .box{
+            width: 300px;
+            padding: 40px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #191919;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .box h1{
+            color: white;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .box input[type= "text"], .box input[type = "password"]{
+            border: 0px;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #e74c3c;
+            padding: 14px 0px;
+            width: 200px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+        .box input[type= "text"]:focus, .box input[type = "password"]:focus{
+            width: 280px;
+            border: 2px solid #e67e22;
+        }
+        .box input[type= "submit"]{
+            border: 0px;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #e06a34;
+            padding: 14px 40px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+         .box input[type= "submit"]:hover{
+             background: #e06a34;
+         }
+    </style>
+</head>
+<body>
+    <form action="" class="box">
+        <h1>Sign in</h1>
+        <input type="text" name="" placeholder="username">
+        <input type="password" name="" placeholder="password">
+        <input type="submit" value="sign in">
+    </form>
+</body>
+</html>
